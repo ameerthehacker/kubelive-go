@@ -11,8 +11,8 @@ func main() {
 	err := cmd.KubeliveCmd.Execute()
 
 	if err != nil {
-		err = fmt.Errorf("%s: %s", internal.AppName, err.Error())
+		_, _ = fmt.Fprintf(os.Stderr, "%s: %s\n\n", internal.AppName, err.Error())
 
-		_, _ = fmt.Fprint(os.Stderr, err)
+		os.Exit(1)
 	}
 }

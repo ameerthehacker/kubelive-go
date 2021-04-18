@@ -1,7 +1,14 @@
-package main
+package cmd
 
-import "fmt"
+import "github.com/spf13/cobra"
 
-func main() {
-	fmt.Println("Hello world!")
+var KubeliveCmd *cobra.Command
+
+func init() {
+	KubeliveCmd = &cobra.Command{
+		Use:   "kubelive [command]",
+		Short: "Kubectl tool reinvented to be more interactive",
+	}
+
+	KubeliveCmd.AddCommand(getCmd)
 }
